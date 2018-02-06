@@ -2,9 +2,12 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include <QDebug>
 
 #include <tango.h>
 #include <tango/DeviceProxy.h>
+
+using namespace Tango;
 
 namespace Ui {
 class Dialog;
@@ -22,6 +25,8 @@ private slots:
     void on_pushButtonOn_clicked();
 
 private:
+    DeviceProxy *ArmenMotorsDevice;
+
     Ui::Dialog *ui;
 };
 
