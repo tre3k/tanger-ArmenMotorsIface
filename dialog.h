@@ -8,6 +8,7 @@
 #include <tango/DeviceProxy.h>
 
 using namespace Tango;
+using namespace std;
 
 namespace Ui {
 class Dialog;
@@ -24,8 +25,17 @@ public:
 private slots:
     void on_pushButtonOn_clicked();
 
+    void on_pushButtonStop_clicked();
+
+    void on_pushButtonLeft_clicked();
+
+    void on_pushButtonRight_clicked();
+
+    void on_pushButtonOff_clicked();
+
 private:
     DeviceProxy *ArmenMotorsDevice;
+    vector<string> commandList;
 
     Ui::Dialog *ui;
 };
