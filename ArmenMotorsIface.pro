@@ -32,3 +32,7 @@ HEADERS += \
 
 FORMS += \
         dialog.ui
+
+INCLUDEPATH += /usr/include/tango
+
+LIBS += -ltango -lomniDynamic4 -lCOS4 -lomniORB4 -lomnithread -llog4tango -lzmq -ldl -lpthread
