@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QDebug>
+#include <QPushButton>
 
 #include <tango.h>
 #include <tango/DeviceProxy.h>

@@ -27,17 +27,33 @@ Dialog::~Dialog()
 
 void Dialog::on_pushButtonOn_clicked()
 {
-
     qDebug () << "Ping: " << ArmenMotorsDevice->ping();
-    DeviceData dat;
-    //dat.
-    ArmenMotorsDevice->command_inout("PowerOn");
-
+    DeviceData arg_in;
+    DeviceData arg_out;
+    DevBoolean state = true;
+    arg_in << state;
+    arg_out = ArmenMotorsDevice->command_inout("PowerOn",arg_in);
+    arg_out >> state;
+    if(state == true){
+        ui->pushButtonOn->setDisabled(true);
+        ui->pushButtonOff->setDisabled(false);
+    }
 }
 
 void Dialog::on_pushButtonOff_clicked()
 {
-
+    qDebug () << "Ping: " << ArmenMotorsDevice->ping();
+    DeviceData arg_in;
+    DeviceData arg_out;
+    DevBoolean state = false;
+    arg_in << state;
+    ArmenMotorsDevice->command_inout("Stop");
+    arg_out = ArmenMotorsDevice->command_inout("PowerOn",arg_in);
+    arg_out >> state;
+    if(state == false){
+        ui->pushButtonOn->setDisabled(false);
+        ui->pushButtonOff->setDisabled(true);
+    }
 }
 
 void Dialog::on_pushButtonStop_clicked()
