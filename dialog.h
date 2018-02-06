@@ -6,6 +6,9 @@
 
 #include <tango.h>
 #include <tango/DeviceProxy.h>
+#include <tango/AttributeProxy.h>
+#include <tango/Connection.h>
+#include <tango/DeviceData.h>
 
 using namespace Tango;
 using namespace std;
@@ -35,6 +38,7 @@ private slots:
 
 private:
     DeviceProxy *ArmenMotorsDevice;
+
     vector<string> commandList;
 
     Ui::Dialog *ui;

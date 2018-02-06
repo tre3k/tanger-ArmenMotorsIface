@@ -15,7 +15,8 @@ Dialog::Dialog(QWidget *parent) :
         qDebug () << QString::fromStdString(commandList.at(i));
     }
 
-    qDebug () << "Adm: " << QString::fromStdString(ArmenMotorsDevice->adm_name());
+    qDebug () << "adm name: " << QString::fromStdString(ArmenMotorsDevice->adm_name());
+    ArmenMotorsDevice->unlock(false);
 
 }
 
@@ -26,7 +27,11 @@ Dialog::~Dialog()
 
 void Dialog::on_pushButtonOn_clicked()
 {
+
     qDebug () << "Ping: " << ArmenMotorsDevice->ping();
+    DeviceData dat;
+    //dat.
+    ArmenMotorsDevice->command_inout("PowerOn");
 
 }
 
@@ -38,21 +43,22 @@ void Dialog::on_pushButtonOff_clicked()
 void Dialog::on_pushButtonStop_clicked()
 {
     qDebug () << "Ping: " << ArmenMotorsDevice->ping();
-    ArmenMotorsDevice->command_query("Stop");
+    ArmenMotorsDevice->command_inout("Stop");
 }
 
 void Dialog::on_pushButtonLeft_clicked()
 {
     qDebug () << "Ping: " << ArmenMotorsDevice->ping();
-    ArmenMotorsDevice->command_query("Stop");
-    ArmenMotorsDevice->command_query("MotionLeft");
+    ArmenMotorsDevice->command_inout("Stop");
+    ArmenMotorsDevice->command_inout("MotionLeft");
+
 }
 
 void Dialog::on_pushButtonRight_clicked()
 {
     qDebug () << "Ping: " << ArmenMotorsDevice->ping();
-    ArmenMotorsDevice->command_query((string)"Stop");
-    ArmenMotorsDevice->command_query((string)"MotionRight");
+    ArmenMotorsDevice->command_inout("Stop");
+    ArmenMotorsDevice->command_inout("MotionRight");
 }
 
 
