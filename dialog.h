@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QDebug>
 #include <QPushButton>
+#include <QTimer>
 
 #include <tango.h>
 #include <tango/DeviceProxy.h>
@@ -27,6 +28,8 @@ public:
     ~Dialog();
 
 private slots:
+    void slot_GetEnd();
+
     void on_pushButtonOn_clicked();
 
     void on_pushButtonStop_clicked();
@@ -38,7 +41,13 @@ private slots:
     void on_pushButtonOff_clicked();
 
 private:
-    DeviceProxy *ArmenMotorsDevice;
+    DeviceProxy *ArmenMotorsDevice0;
+    DeviceProxy *ArmenMotorsDevice1;
+    DeviceProxy *ArmenMotorsDevice2;
+    DeviceProxy *ArmenMotorsDevice3;
+    DeviceProxy *ArmenMotorsDevice4;
+    DeviceProxy *ArmenMotorsDevice5;
+
 
     vector<string> commandList;
 
