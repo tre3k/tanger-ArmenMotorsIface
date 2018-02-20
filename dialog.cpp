@@ -7,6 +7,9 @@ Dialog::Dialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    led1 = new QCLed();
+    ui->verticalLayoutLed1->addWidget(led1);
+
     ArmenMotorsDevice0 = new DeviceProxy("motors/device/0");
     ArmenMotorsDevice1 = new DeviceProxy("motors/device/1");
     ArmenMotorsDevice2 = new DeviceProxy("motors/device/2");

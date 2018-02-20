@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui quick quickwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        dialog.cpp
+        dialog.cpp \
+    qcled.cpp
 
 HEADERS += \
-        dialog.h
+        dialog.h \
+    qcled.h
 
 FORMS += \
         dialog.ui
@@ -36,3 +38,6 @@ FORMS += \
 INCLUDEPATH += /usr/include/tango
 
 LIBS += -ltango -lomniDynamic4 -lCOS4 -lomniORB4 -lomnithread -llog4tango -lzmq -ldl -lpthread
+
+DISTFILES += \
+    led.qml

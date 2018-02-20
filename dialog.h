@@ -12,6 +12,8 @@
 #include <tango/Connection.h>
 #include <tango/DeviceData.h>
 
+#include "qcled.h"
+
 using namespace Tango;
 using namespace std;
 
@@ -47,6 +49,8 @@ private:
     DeviceProxy *ArmenMotorsDevice3;
     DeviceProxy *ArmenMotorsDevice4;
     DeviceProxy *ArmenMotorsDevice5;
+
+    QCLed *led1;
 
 
     vector<string> commandList;
