@@ -1,14 +1,14 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-02-06T11:29:01
+# Project created by QtCreator 2018-02-22T11:20:03
 #
 #-------------------------------------------------
 
-QT       += core gui quick quickwidgets
+QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = ArmenMotorsIface
+TARGET = ArmenMotorsIface2
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,19 +25,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        dialog.cpp \
-    qcled.cpp
+        dialog.cpp
 
 HEADERS += \
-        dialog.h \
-    qcled.h
+        dialog.h
 
 FORMS += \
         dialog.ui
-
-INCLUDEPATH += /usr/include/tango
-
-LIBS += -ltango -lomniDynamic4 -lCOS4 -lomniORB4 -lomnithread -llog4tango -lzmq -ldl -lpthread
-
-DISTFILES += \
-    led.qml
