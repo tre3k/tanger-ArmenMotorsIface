@@ -101,6 +101,19 @@
     <string>Off</string>
    </property>
   </widget>
+  <widget class="QLabel" name="labelEnd">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>304</y>
+     <width>64</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

@@ -3,16 +3,19 @@
 
 #include <QDialog>
 #include <QDebug>
-#include <QThread>
 #include <QPushButton>
 #include <QListWidget>
 #include <QVector>
+#include <QLabel>
+#include <QCheckBox>
 
 #include <tango.h>
 #include <tango/DeviceProxy.h>
 #include <tango/AttributeProxy.h>
 #include <tango/Connection.h>
 #include <tango/DeviceData.h>
+
+#include "endthread.h"
 
 using namespace Tango;
 
@@ -36,6 +39,8 @@ public:
     ~Dialog();
 
 private slots:
+    void slot_End(bool);
+
     void on_pushButton_On_clicked();
 
     void on_pushButton_Off_clicked();
@@ -46,10 +51,13 @@ private slots:
 
     void on_pushButton_left_clicked();
 
+
+
 private:
     Ui::Dialog *ui;
 
     QVector<sMotor> motors;
+    EndThread *eThread;
 
     void getState();
 };

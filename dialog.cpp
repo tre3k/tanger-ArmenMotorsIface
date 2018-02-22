@@ -18,6 +18,12 @@ Dialog::Dialog(QWidget *parent) :
 
     getState();
 
+    eThread = new EndThread(motors.at(0).device);
+    eThread->start();
+
+    connect(eThread,SIGNAL(signal_end(bool)),
+            this,SLOT(slot_End(bool)));
+
 }
 
 Dialog::~Dialog()
@@ -65,6 +71,8 @@ void Dialog::on_pushButton_On_clicked()
     }
 
     getState();
+
+
 }
 
 void Dialog::on_pushButton_Off_clicked()
@@ -112,8 +120,17 @@ void Dialog::on_pushButton_left_clicked()
     for(int i=0;i<ui->listWidget->count();i++){
         if(ui->listWidget->item(i)->isSelected()){
             motors.at(i).device->command_inout("Stop");
-            motors.at(i).device->command_inout("MotionRight");
+            motors.at(i).device->command_inout("MotionLeft");
         }
     }
     getState();
+}
+
+void Dialog::slot_End(bool state){
+    if(state){
+        ui->labelEnd->setText("END");
+        if(ui->checkBox->isChecked()) on_pushButton_stop_clicked();
+    }else{
+        ui->labelEnd->setText(" ");
+    }
 }
