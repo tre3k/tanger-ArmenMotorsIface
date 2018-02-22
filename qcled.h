@@ -3,8 +3,10 @@
 
 #include <QWidget>
 #include <QQuickWidget>
+#include <QVBoxLayout>
+#include <QLabel>
 
-class QCLed : public QWidget
+class QCLed : public QQuickWidget
 {
     Q_OBJECT
 public:
@@ -15,7 +17,6 @@ signals:
 public slots:
 
 private:
-    QQuickWidget *quickWidget;
 };
 
 #endif // QCLED_H

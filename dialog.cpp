@@ -18,6 +18,7 @@ Dialog::Dialog(QWidget *parent) :
     ArmenMotorsDevice5 = new DeviceProxy("motors/device/5");
     qDebug () << "Ping: " << ArmenMotorsDevice0->ping();
 
+    /*
     commandList = *(ArmenMotorsDevice0->get_command_list());
     for(int i=0;i<commandList.size();i++){
         qDebug () << QString::fromStdString(commandList.at(i));
@@ -25,7 +26,7 @@ Dialog::Dialog(QWidget *parent) :
 
     qDebug () << "adm name: " << QString::fromStdString(ArmenMotorsDevice0->adm_name());
     ArmenMotorsDevice0->unlock(false);
-
+    */
 }
 
 Dialog::~Dialog()

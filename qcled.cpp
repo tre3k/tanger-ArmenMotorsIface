@@ -1,9 +1,6 @@
 #include "qcled.h"
 
-QCLed::QCLed(QWidget *parent) : QWidget(parent)
+QCLed::QCLed(QWidget *parent) : QQuickWidget(parent)
 {
-    quickWidget = new QQuickWidget(this);
-    quickWidget->setSource(QUrl("QML:/led.qml"));
-
-
+    this->setSource(QUrl("qrc:/led.qml"));
 }
