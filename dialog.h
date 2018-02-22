@@ -35,6 +35,17 @@ public:
     explicit Dialog(QWidget *parent = 0);
     ~Dialog();
 
+private slots:
+    void on_pushButton_On_clicked();
+
+    void on_pushButton_Off_clicked();
+
+    void on_pushButton_stop_clicked();
+
+    void on_pushButton_right_clicked();
+
+    void on_pushButton_left_clicked();
+
 private:
     Ui::Dialog *ui;
 
